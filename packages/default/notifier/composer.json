@@ -1,0 +1,15 @@
+{
+    "require": {
+        "symfony/service-contracts": "2.5.4",
+        "symfony/deprecation-contracts": "2.5.4",
+        "symfony/http-client-contracts": "2.5.5",
+        "symfony/http-client": "5.4.49",
+        "symfony/telegram-notifier": "6.0.19",
+        "symfony/notifier": "6.0.19"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "7.9.3",
+        "friendsofphp/php-cs-fixer": "^3",
+        "phpstan/phpstan": "^2"
+    }
+}

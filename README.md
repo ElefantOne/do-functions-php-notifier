@@ -1,8 +1,6 @@
-# `do-functions-php-send-email`
+# `do-functions-php-notifier`
 
-[![Check Code](https://github.com/egorsmkv/do-functions-php-send-email/actions/workflows/check-code.yml/badge.svg)](https://github.com/egorsmkv/do-functions-php-send-email/actions/workflows/check-code.yml)
-
-A serverless function to send emails with attachments (optional).
+A serverless function to send notifications.
 
 ## Requirements
 

@@ -2,14 +2,14 @@ alerts:
 - rule: DEPLOYMENT_FAILED
 - rule: DOMAIN_FAILED
 
-name: send_email
+name: notifier
 
 functions:
 - github:
     branch: main
     deploy_on_push: true
-    repo: egorsmkv/do-functions-php-send-email
-  name: send_email-api
+    repo: egorsmkv/do-functions-php-notifier
+  name: notifier-api
   routes:
   - path: /
   source_dir: /
