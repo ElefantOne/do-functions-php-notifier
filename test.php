@@ -14,7 +14,7 @@ $args = [
 
 $client = new \GuzzleHttp\Client();
 
-$url = 'https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-d162e87e-b749-4ae7-ac9c-1a295057435a/default/notifier';
+$url = 'https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-e885d530-9581-4dfc-8993-2b82c6a78291/default/notifier';
 
 $response = $client->post($url, [
     'json' => $args,

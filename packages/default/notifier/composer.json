@@ -1,11 +1,8 @@
 {
     "require": {
-        "symfony/service-contracts": "2.5.4",
-        "symfony/deprecation-contracts": "2.5.4",
-        "symfony/http-client-contracts": "2.5.5",
-        "symfony/http-client": "5.4.49",
-        "symfony/telegram-notifier": "6.0.19",
-        "symfony/notifier": "6.0.19"
+        "php": ">=8.2",
+        "symfony/telegram-notifier": "7.2.0",
+        "symfony/notifier": "7.2.0"
     },
     "require-dev": {
         "guzzlehttp/guzzle": "7.9.3",
