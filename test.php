@@ -16,6 +16,11 @@ $client = new \GuzzleHttp\Client();
 $url = 'https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-98c5a8d3-60ac-4726-89a4-90a3b9e02f5c/default/notifier';
 
 $response = $client->post($url, [
+    // Config
+    'connect_timeout' => 20,
+    'read_timeout' => 20,
+    'timeout' => 30,
+    // The data
     'json' => $args,
 ]);
 
