@@ -6,8 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/index.php';
 
 $args = [
-    // check chat id: https://api.telegram.org/bot{token}/getUpdates
-    'dsn' => 'telegram://...:...@default?channel=-...',
+    // you can find out the CHAT_ID in the output of https://api.telegram.org/bot{token}/getUpdates
+    'dsn' => 'telegram://TOKEN@default?channel=CHAT_ID',
     'text' => implode(PHP_EOL, [
         '<b>hello</b>',
         'world',

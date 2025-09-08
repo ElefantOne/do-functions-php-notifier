@@ -1,5 +1,6 @@
 <?php
 
+use Exception;
 use Symfony\Component\Notifier\Bridge\Telegram\TelegramOptions;
 use Symfony\Component\Notifier\Bridge\Telegram\TelegramTransportFactory;
 use Symfony\Component\Notifier\Chatter;
@@ -36,16 +37,16 @@ function wrap(array $args): array
 function main(array $args): array
 {
     // Check arguments
-    if (!isset($args['dsn'])) {
-        return wrap(['error' => 'Please supply dsn argument.']);
+    if (!empty($args['dsn'])) {
+        return wrap(['error' => 'Please supply dsn argument as a string.']);
     }
 
-    if (!isset($args['text'])) {
-        return wrap(['error' => 'Please supply text argument.']);
+    if (!empty($args['text'])) {
+        return wrap(['error' => 'Please supply text argument as a string.']);
     }
 
     // Send the message
-    $result = send($args);
+    $result = send($args['dsn'], $args['text']);
 
     return wrap(['response' => $result, 'version' => 1]);
 }
@@ -53,16 +54,17 @@ function main(array $args): array
 /**
  * Send the message using Symfony Notifier.
  *
- * @param array $args Arguments containing the DSN and text
+ * @param string $dsn  The DSN for the transport
+ * @param string $text The message text
  *
  * @return array Response with status and result
  */
-function send(array $args): array
+function send(string $dsn, string $text): array
 {
     try {
-        $transport = (new TelegramTransportFactory())->create(new Dsn($args['dsn']));
+        $transport = (new TelegramTransportFactory())->create(new Dsn($dsn));
         $chatter = new Chatter($transport);
-        $chatMessage = new ChatMessage($args['text']);
+        $chatMessage = new ChatMessage($text);
 
         $telegramOptions = (new TelegramOptions())
             ->parseMode('HTML')

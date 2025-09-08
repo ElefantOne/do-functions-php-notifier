@@ -18,6 +18,7 @@ use-tabs = false
 integrations = []
 
 [linter.rules]
+no-debug-symbols = { enabled = false }
 ambiguous-function-call = { enabled = false }
 literal-named-argument = { enabled = false }
 halstead = { effort-threshold = 7000 }
