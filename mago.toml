@@ -1,0 +1,31 @@
+php-version = "8.2"
+
+[source]
+includes = ["packages/default/notifier/vendor"]
+paths = [
+    "test.php", 
+    "packages/default/notifier/test.php", 
+    "packages/default/notifier/index.php", 
+    "packages/default/notifier/phpcs.php",
+]
+
+[formatter]
+print-width = 120
+tab-width = 4
+use-tabs = false
+
+[linter]
+integrations = []
+
+[linter.rules]
+ambiguous-function-call = { enabled = false }
+literal-named-argument = { enabled = false }
+halstead = { effort-threshold = 7000 }
+
+[analyzer]
+find-unused-definitions = true
+find-unused-expressions = false
+analyze-dead-code = false
+check-throws = true
+allow-possibly-undefined-array-keys = true
+perform-heuristic-checks = true

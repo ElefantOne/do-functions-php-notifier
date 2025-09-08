@@ -8,6 +8,7 @@ use Symfony\Component\Notifier\Transport\Dsn;
 
 // Statuses
 const OK = 1;
+
 const ERROR = -1;
 
 // Error reporting
@@ -20,7 +21,7 @@ error_reporting(E_ALL & ~E_DEPRECATED);
  *
  * @return array Response with status and result
  */
-function wrap(array $args) : array
+function wrap(array $args): array
 {
     return ['body' => $args];
 }
@@ -32,7 +33,7 @@ function wrap(array $args) : array
  *
  * @return array Response with status and result
  */
-function main(array $args) : array
+function main(array $args): array
 {
     // Check arguments
     if (!isset($args['dsn'])) {
@@ -58,17 +59,17 @@ function main(array $args) : array
  */
 function send(array $args): array
 {
-    $transport = (new TelegramTransportFactory())->create(new Dsn($args['dsn']));
-    $chatter = new Chatter($transport);
-    $chatMessage = new ChatMessage($args['text']);
-
-    $telegramOptions = (new TelegramOptions())
-        ->parseMode('HTML')
-        ->disableWebPagePreview(true);
-
-    $chatMessage->options($telegramOptions);
-
     try {
+        $transport = (new TelegramTransportFactory())->create(new Dsn($args['dsn']));
+        $chatter = new Chatter($transport);
+        $chatMessage = new ChatMessage($args['text']);
+
+        $telegramOptions = (new TelegramOptions())
+            ->parseMode('HTML')
+            ->disableWebPagePreview(true);
+
+        $chatMessage->options($telegramOptions);
+
         $chatter->send($chatMessage);
 
         return ['status' => OK];

@@ -8,7 +8,6 @@ require __DIR__ . '/index.php';
 $args = [
     // check chat id: https://api.telegram.org/bot{token}/getUpdates
     'dsn' => 'telegram://...:...@default?channel=-...',
-
     'text' => implode(PHP_EOL, [
         '<b>hello</b>',
         'world',
@@ -22,5 +21,6 @@ echo "Response:\n";
 print_r($response);
 
 $memory_usage = memory_get_usage();
+$memory_usage = (string) (($memory_usage / 1024) / 1024);
 
-echo 'Memory usage: ' . ($memory_usage / 1024 / 1024) . " MB\n";
+echo 'Memory usage: ' . $memory_usage . " MB\n";
