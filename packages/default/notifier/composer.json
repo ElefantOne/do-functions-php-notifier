@@ -1,11 +1,11 @@
 {
     "require": {
         "php": ">=8.2",
-        "symfony/telegram-notifier": "7.2.0",
-        "symfony/notifier": "7.2.0"
+        "symfony/telegram-notifier": "7.3.*",
+        "symfony/notifier": "7.3.*"
     },
     "require-dev": {
-        "guzzlehttp/guzzle": "7.9.3",
+        "guzzlehttp/guzzle": "7.10.*",
         "friendsofphp/php-cs-fixer": "^3",
         "phpstan/phpstan": "^2"
     }
