@@ -2,6 +2,13 @@
 
 require __DIR__ . '/packages/default/notifier/vendor/autoload.php';
 
+// Constants
+const OK = 1;
+
+const HTTP_OK = 200;
+
+const ERROR = -1;
+
 $args = [
     // you can find out the CHAT_ID in the output of https://api.telegram.org/bot{token}/getUpdates
     'dsn' => 'telegram://TOKEN@default?channel=CHAT_ID',
@@ -27,4 +34,25 @@ $response = $client->post($url, [
 $responseBody = $response->getBody()->getContents();
 $responseCode = $response->getStatusCode();
 
-var_dump($responseBody);
+if (HTTP_OK !== $responseCode) {
+    echo "Something went wrong!\n";
+
+    exit(1);
+}
+
+echo "HTTP call was successful!\n";
+
+$parsedData = json_decode($response->getBody(), true);
+$response = $parsedData['response'];
+
+switch ($response['status']) {
+    case OK:
+        echo "Notification sent successfully!\n";
+        break;
+    case ERROR:
+        echo "Notification failed to send!\n";
+        break;
+    default:
+        echo "Something went wrong!\n";
+        break;
+}

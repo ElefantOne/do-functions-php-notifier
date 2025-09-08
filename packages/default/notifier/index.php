@@ -1,6 +1,5 @@
 <?php
 
-use Exception;
 use Symfony\Component\Notifier\Bridge\Telegram\TelegramOptions;
 use Symfony\Component\Notifier\Bridge\Telegram\TelegramTransportFactory;
 use Symfony\Component\Notifier\Chatter;
@@ -37,11 +36,11 @@ function wrap(array $args): array
 function main(array $args): array
 {
     // Check arguments
-    if (!empty($args['dsn'])) {
+    if (empty($args['dsn'])) {
         return wrap(['error' => 'Please supply dsn argument as a string.']);
     }
 
-    if (!empty($args['text'])) {
+    if (empty($args['text'])) {
         return wrap(['error' => 'Please supply text argument as a string.']);
     }
 
