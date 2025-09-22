@@ -20,7 +20,7 @@ $args = [
 
 $client = new \GuzzleHttp\Client();
 
-$url = 'https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-98c5a8d3-60ac-4726-89a4-90a3b9e02f5c/default/notifier';
+$url = 'https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-23d0dc89-648f-49d6-bf44-72388e68288c/default/notifier';
 
 $response = $client->post($url, [
     // Config
@@ -57,9 +57,9 @@ switch ($response['status']) {
         echo "Notification sent successfully!\n";
         break;
     case ERROR:
-        echo "Notification failed to send!\n";
+        echo "Notification failed to send! Use parsedData variable to find out more.\n";
         break;
     default:
-        echo "Something went wrong!\n";
+        echo "Something went wrong! Use parsedData variable to find out more.\n";
         break;
 }
