@@ -1,11 +1,11 @@
 php-version = "8.2"
 
 [source]
-includes = ["packages/default/notifier/vendor"]
+includes = ["./vendor"]
 paths = [
+    "../../../test.php", 
+    "index.php", 
     "test.php", 
-    "packages/default/notifier/test.php", 
-    "packages/default/notifier/index.php", 
 ]
 
 [formatter]
