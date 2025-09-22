@@ -35,12 +35,24 @@ function wrap(array $args): array
  */
 function main(array $args): array
 {
+    $requiredArgs = [
+        'dsn',
+        'text',
+    ];
+
+    // Check required arguments
+    foreach ($requiredArgs as $arg) {
+        if (!isset($args[$arg])) {
+            return wrap(['error' => sprintf('Please supply %s argument.', $arg)]);
+        }
+    }
+
     // Check arguments
-    if (empty($args['dsn'])) {
+    if (!is_string($args['dsn'])) {
         return wrap(['error' => 'Please supply dsn argument as a string.']);
     }
 
-    if (empty($args['text'])) {
+    if (!is_string($args['text'])) {
         return wrap(['error' => 'Please supply text argument as a string.']);
     }
 
@@ -74,7 +86,7 @@ function send(string $dsn, string $text): array
         $chatter->send($chatMessage);
 
         return ['status' => OK];
-    } catch (Exception $e) {
-        return ['status' => ERROR, 'result' => 'Failed to send: ' . $e->getMessage()];
+    } catch (Throwable $e) {
+        return ['status' => ERROR, 'result' => sprintf('Failed to send: %s', $e->getMessage())];
     }
 }

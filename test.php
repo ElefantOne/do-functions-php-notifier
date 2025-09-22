@@ -42,7 +42,14 @@ if (HTTP_OK !== $responseCode) {
 
 echo "HTTP call was successful!\n";
 
-$parsedData = json_decode($response->getBody(), true);
+/**
+ * @var array $parsedData
+ */
+$parsedData = json_decode($responseBody, true);
+
+/**
+ * @var array $response
+ */
 $response = $parsedData['response'];
 
 switch ($response['status']) {

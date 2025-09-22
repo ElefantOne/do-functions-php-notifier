@@ -6,7 +6,6 @@ paths = [
     "test.php", 
     "packages/default/notifier/test.php", 
     "packages/default/notifier/index.php", 
-    "packages/default/notifier/phpcs.php",
 ]
 
 [formatter]

@@ -5,8 +5,12 @@
         "symfony/notifier": "7.3.*"
     },
     "require-dev": {
-        "guzzlehttp/guzzle": "7.10.*",
-        "friendsofphp/php-cs-fixer": "^3",
-        "phpstan/phpstan": "^2"
+        "guzzlehttp/guzzle": "^7",
+        "carthage-software/mago": "1.0.0-beta.18"
+    },
+    "config": {
+        "allow-plugins": {
+            "carthage-software/mago": true
+        }
     }
 }
