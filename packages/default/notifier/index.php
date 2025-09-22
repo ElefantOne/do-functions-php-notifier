@@ -15,7 +15,7 @@ const ERROR = -1;
 error_reporting(E_ALL & ~E_DEPRECATED);
 
 /**
- * Just a wrapper function to return the response.
+ * A wrapper function to return the response.
  *
  * @param array $args Arguments to be returned
  *

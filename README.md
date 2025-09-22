@@ -2,7 +2,7 @@
 
 [![Check Code](https://github.com/ElefantOne/do-functions-php-notifier/actions/workflows/check-code.yml/badge.svg)](https://github.com/ElefantOne/do-functions-php-notifier/actions/workflows/check-code.yml)
 
-A serverless function to send notifications.
+A serverless function to send notifications to Telegram.
 
 ## Installation
 
