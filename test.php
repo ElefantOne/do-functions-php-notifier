@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require __DIR__ . '/packages/default/notifier/vendor/autoload.php';
 
 // Constants

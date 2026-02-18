@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Symfony\Component\Notifier\Bridge\Telegram\TelegramOptions;
 use Symfony\Component\Notifier\Bridge\Telegram\TelegramTransportFactory;
 use Symfony\Component\Notifier\Chatter;
@@ -42,7 +44,7 @@ function main(array $args): array
 
     // Check required arguments
     foreach ($requiredArgs as $arg) {
-        if (!isset($args[$arg])) {
+        if (!array_key_exists($arg, $args) || $args[$arg] === null) {
             return wrap(['error' => sprintf('Please supply %s argument.', $arg)]);
         }
     }
